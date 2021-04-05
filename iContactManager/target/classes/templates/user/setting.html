@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="user/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+	<section>
+		<div class="settingcontainer">		
+		<div class="card" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">Setting</h5>
+		    <p class="card-text">To Change your Password.</p>
+		    <a th:href="@{/iContactManager/user/changepassword}" class="btn btn-primary">Change Password</a>
+		  </div>
+		</div>
+		</div>
+
+		
+	</section>
+
+</body>
+</html>

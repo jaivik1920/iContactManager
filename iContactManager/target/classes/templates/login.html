@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+	<section>
+		
+		<h1 class="text-center text-white my-4">Login Here!!</h1>
+		<div class="container text-white">
+		<form th:action="@{/iContactManager/login}" method="post" th:unless="${param.logout}">
+		
+			
+				<div th:if="${session.message}"   th:classappend="${session.message.type}" class="alert alert-dismissible fade show" role="alert">
+ 			<p th:text="${session.message.content}"></p>
+ 			 <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"> </button>
+ 			<th:block th:text="${#session.removeAttribute('message')}"></th:block>    
+ 			
+		</div>
+			
+				<div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+				  <strong>Error!</strong> Invalid Username or password!!!
+				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+				
+				
+				
+				  <div class="mb-3">
+				    <label for="exampleInputEmail1" class="form-label">Email address</label>
+				    <input type="email" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp" required>
+				    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+				  </div>
+				  <div class="mb-3">
+				    <label for="exampleInputPassword1" class="form-label">Password</label>
+				    <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+				  </div>
+				   
+				  <button type="submit" class="btn btn-outline-warning " style="font-weight:bold">Submit</button>
+				  	
+				  <a th:href="@{/iContactManager/signup}" style="margin-left:200px">Don't have an Account?</a>
+				  
+			      <a th:href="@{/iContactManager/forgotpassword}" style="margin-left:286px">Forgot Password?</a>
+				  
+				</form>
+				
+				<div th:if="${param.logout}" class="alert alert-success alert-dismissible fade show" role="alert">
+				  <strong>Success</strong>Logout Successfully!!!
+				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+				
+				  <a th:if="${param.logout}"  th:href="@{/iContactManager/user/}" class="btn btn-outline-warning" style="font-weight:bold">Login</a>
+				
+	</div>
+	
+	</section>
+
+</body>
+</html>

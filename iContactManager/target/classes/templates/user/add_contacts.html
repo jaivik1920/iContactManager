@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="user/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body style="background-color:black">
+
+
+	<section>
+	
+		<h1 class="text-center text-white my-2">Add Contact Here!!!</h1>
+		
+		
+		
+		<div class="container text-white" style="width:500px; margin-top:20px">
+		
+		
+				<div th:if="${session.message}"   th:classappend="${session.message.type}" class="alert alert-dismissible fade show" role="alert">
+ 			<p th:text="${session.message.content}"></p>
+ 			 <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"> </button>
+ 			<th:block th:text="${#session.removeAttribute('message')}"></th:block>    
+ 			
+		</div>
+		
+		
+			<form  th:action="@{/iContactManager/user/contact_handler}" method="post">
+			  <div class="mb-3">
+			    <label for="exampleInputEmail1" class="form-label">Email address</label>
+			    <input type="email" class="form-control" id="exampleInputEmail1" name="emailString" aria-describedby="emailHelp" required>
+			    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+			  </div>
+			   <div class="mb-3">
+			    <label for="exampleInputEmail1" class="form-label">Name</label>
+			    <input type="text" class="form-control" id="exampleInputEmail1" name="nameString" aria-describedby="emailHelp" required>
+			  </div>
+			  <div class="mb-3">
+			    <label for="exampleInputPassword1" class="form-label">Phone number</label>
+			    <input type="text" class="form-control" id="exampleInputPassword1" name="phone" required>
+			  </div>
+			   
+			  <button type="submit" class="btn btn-outline-primary" style="font-weight:bold">Add Contact</button>
+			  <button type="reset" class="btn btn-outline-warning mx-4" style="font-weight:bold">Reset</button>
+			  
+			</form>
+	</div>
+			
+	</section>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+body{
+	background-color: black;
+}
+
+.container{
+	width: 500px;
+	margin-top: 20px;
+}
+
+.imgcontainer{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	height:400px;
+}
+.welcomecontainer{
+	
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width:400px;
+	height:300px;
+	flex-direction:column;
+	
+}
+
+.settingcontainer{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	height:300px;
+	width:500px;	
+}

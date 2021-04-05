@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="user/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+	<section>
+		
+		<div th:if="${session.message}"   th:classappend="${session.message.type}" class="alert alert-dismissible fade show" role="alert">
+ 			<p th:text="${session.message.content}"></p>
+ 			 <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"> </button>
+ 			<th:block th:text="${#session.removeAttribute('message')}"></th:block>    
+		</div>
+		
+		<div class="imgcontainer" >
+	
+		
+		<div class="welcomecontainer text-white text-center">
+		
+				
+				<p>Thank you! <span th:text="${user.name}" class="text-capitalize fw-bold text-success"></span> for using iContactManager.Now start saving your contacts on iContactManager</p>
+			
+			<a href="" th:href="@{/iContactManager/user/add_contact}">	<button type="button" class="btn btn-outline-primary">Get started</button> </a>
+				
+		
+		</div>
+			
+	</div>
+			
+	</section>
+
+</body>
+</html>
